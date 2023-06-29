@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+#define ll long long
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+  ll t;
+  cin>>t;
+  for(ll x=0;x<t;x++)
+  {
+      ll m;
+      cin>>m;
+      ll arr[m];
+      ll arr2[m];
+      ll ans[m]={0};
+      for(int i=0;i<m;i++)
+      {
+          cin>>arr[i];
+      }
+      copy(arr,arr+m,arr2);
+      sort(arr2,arr2+m);
+      for(int i=0;i<m;i++)
+      {
+          if(arr[i]==arr2[m-1])
+          {
+              ans[i]=arr[i]-arr2[m-2];
+          }
+          else
+          {
+              ans[i]=arr[i]-arr2[m-1];
+          }
+      }
+      for(int i=0;i<m;i++)
+      {
+          cout<<ans[i]<<" ";
+      }
+      cout<<endl;
+
+
+
+
+  }
+}
