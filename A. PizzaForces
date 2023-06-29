@@ -1,0 +1,38 @@
+    #include <iostream>
+    #include <algorithm>
+    using namespace std;
+     
+    int main() {
+        long long t;
+        cin>>t;
+        while(t--)
+        {
+            long long num;
+            cin>>num;
+            long long a,b,c;
+            a=num/6;
+            b=num%6;
+            if(num<=6)
+            {
+                cout<<15<<endl;
+            }
+            else if(b==0)
+            {
+                cout<<a*15<<endl;
+            }
+            else if(b!=0&&b<=2)
+            {
+                cout<<(a*15)+5<<endl;
+            }
+            else if(b<=4&&b!=0)
+            {
+                cout<<(a*15)+10<<endl;
+            }
+            else
+            {
+                cout<<(a+1)*15<<endl;
+            }
+     
+        }
+        return 0;
+    }
