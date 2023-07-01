@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+#define ll long long
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    ll numberofpiles;
+    cin >> numberofpiles;
+    vector<ll>arr(numberofpiles);
+    cin >> arr[0];
+    for (int i = 1; i < numberofpiles; i++) {
+        cin >> arr[i];
+        arr[i] = arr[i - 1] + arr[i];
+
+    }
+    ll numofjworms;
+    cin >> numofjworms;
+    while (numofjworms--) {
+        ll label;
+        cin >> label;
+        ll idx = lower_bound(arr.begin(), arr.end(), label) - arr.begin();
+        cout << idx + 1 << endl;
+    }
+
+
+
+}
