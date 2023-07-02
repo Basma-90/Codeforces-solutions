@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+#define ll long long
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+   ll n;
+   cin>>n;
+   ll maxi;
+   vector<ll>z(n);
+  for(ll u=0;u<n;u++)
+   {
+      maxi=0;
+       for(ll i=0;i<n;i++)
+       {
+           ll x;
+           cin>>x;
+           maxi= max(maxi,x);
+       }
+         z[u]=(maxi);
+   }
+  map<ll,ll>mapp;
+  for(int i=0;i<n;i++)
+  {
+      ll y=z[i];
+      if(mapp[y]==0)
+      {
+          z[i]=(y);
+          mapp[y]=1;
+      }
+      else
+      {
+          while(y++)
+          {
+              if(mapp[y]==0)
+              {
+                  z[i]=(y);
+                  mapp[y]=1;
+                  break;
+              }
+          }
+      }
+  }
+
+  for(auto it:z)
+  {
+
+      cout<<it<<" ";
+  }
+
+}
