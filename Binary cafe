@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+#define ll long long
+void fast()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+}
+int main()
+{
+    fast();
+ll t;
+cin>>t;
+while(t--)
+{
+    int coins,dess;
+    cin>>coins>>dess;
+    dess=min(dess,30);
+    ll res=min(coins+1,1<<dess);
+    cout<<res<<endl;
+}
+}
