@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+#define ll long long
+void fast()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+}
+int main()
+{
+    fast();
+    ll t;
+    cin>>t;
+    string s;
+    char*prev;
+    char*next;
+    while(t--)
+    {
+        ll size;
+        cin>>size;
+        s="";
+        string a;
+        cin>>a;
+        prev=&a[0];
+        next=&a[1];
+        char*end=&a[size-1];
+        int p=0;
+        while(next<=end)
+        {
+            while(*prev!=*next)
+            {
+                next++;
+            }
+            s+=*prev;
+            next++;
+            prev=next;
+            next++;
+        }
+        cout<<s<<endl;
+    }
+}
