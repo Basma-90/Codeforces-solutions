@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+#define ll long long
+int main()
+{
+    ll t;
+    cin>>t;
+    deque<ll>q;
+    while(t--)
+    {
+        ll num;
+        cin>>num;
+        bool f=0;
+        if(num==1)
+        {
+            ll x;
+            cin>>x;
+            q.push_back(x);
+        }
+        else if(num==2)
+        {
+            ll guess;
+            cin>>guess;
+            if(guess==q.front())
+            {
+                f=1;
+            }
+            q.pop_front();
+            if(f==1)
+            {
+                cout<<"Yes"<<"\n";
+            }
+            else
+            {
+                cout<<"No"<<"\n";
+            }
+
+        }
+
+    }
+
+}
