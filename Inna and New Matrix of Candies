@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+#define ll long long
+void fast()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+}
+ll arr1[100009];
+ll arr2[100009];
+int main()
+{
+    fast();
+    ll siz;
+    cin>>siz;
+    for(ll i=0;i<siz;i++)
+    {
+        ll x;
+        cin>>x;
+        arr1[i]=x;
+        arr2[i]=x;
+    }
+    sort(arr2,arr2+siz);
+    for(ll i=1;i<siz;i++)
+    {
+        arr1[i]+=arr1[i-1];
+        arr2[i]+=arr2[i-1];
+    }
+    ll num;
+    cin>>num;
+    for(ll i=0;i<num;i++)
+    {
+        ll x,y,z;
+        cin>>x>>y>>z;
+        if(x==1)
+        {
+            if(y==1)
+            {
+                cout<<arr1[z-1]<<"\n";
+            }
+            else
+            {
+                ll res = arr1[z-1] - arr1[y - 2];
+                cout << res << "\n";
+            }
+        }
+        else {
+            if (y == 1) {
+                cout << arr2[z-1] << "\n";
+            } else {
+                ll res = arr2[z-1] - arr2[y - 2];
+                cout << res << "\n";
+            }
+        }
+    }
+}
