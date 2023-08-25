@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+#define ll long long
+void fast()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+}
+ll arr1[100009];
+ll arr2[100009];
+int main()
+{
+    fast();
+  ll t;
+  cin>>t;
+  while(t--)
+  {
+      ll siz;
+      cin>>siz;
+      ll arr[siz];
+      for(ll i=0;i<siz;i++)
+      {
+          cin>>arr[i];
+      }
+      for(ll i=1;i<siz;i++)
+      {
+          arr[i]=arr[i]+arr[i-1];
+      }
+      bool found=false;
+      for(ll i=0;i<siz;i++)
+      {
+          if(arr[i]%2==0&&(arr[siz-1]-arr[i])%2==0)
+          {
+              found=true;
+
+          }
+          else if(arr[i]%2!=0&&(arr[siz-1]-arr[i])%2!=0)
+          {
+              found=true;
+
+          }
+      }
+      if(found)
+      {
+          cout<<"YES"<<"\n";
+      }
+      else
+      {
+          cout<<"NO"<<"\n";
+      }
+
+  }
+}
