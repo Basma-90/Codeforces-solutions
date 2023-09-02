@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+#define ll long long
+void fast()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+}
+ll arr1[100009];
+ll arr2[100009];
+int main()
+{
+    fast();
+  ll t;
+  cin>>t;
+  while(t--)
+  {
+      string num;
+      cin>>num;
+      string ans="";
+     ans='0'+num;
+      int p=ans.length()-1;
+      int place=-1;
+      for(int i=p;i>=1;i--)
+      {
+          if(ans[i]-'0'>=5)
+          {
+             if(ans[i-1]-'0'!=9)
+             {
+                 ans[i-1]++;
+             }
+              ans[i]='0';
+              place=i;
+
+          }
+
+      }
+      if (place != -1)
+      {
+          for (int i = place; i < p+1; i++) ans[i] = '0';
+      }
+      if(ans[0]=='0')
+      {
+          reverse(ans.begin(),ans.end());
+          ans.pop_back();
+          reverse(ans.begin(),ans.end());
+      }
+      cout<<ans<<"\n";
+
+
+  }
+}
