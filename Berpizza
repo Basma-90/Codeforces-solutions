@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+#include<bits/stdc++.h>
+#define ll long long
+void fast()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+}
+const long N=5E5+9;
+bool visited[N];
+int main() {
+    long long t;
+    cin>>t;
+    map<long long,long long>mp;
+    deque<long long>vec;
+    priority_queue<pair<long long,long long>>pq;
+    long long cnt=0;
+    while(t--)
+    {
+
+        long long n;
+        cin>>n;
+        if (n==1)
+        {
+            long long x;
+            cin>>x;
+            cnt++;
+            vec.push_back(cnt);
+            mp[cnt]=x;
+            pq.push({x,-cnt});
+        }
+        else if (n==2&&!vec.empty())
+        {
+            while(visited[vec.front()])
+            {
+                vec.pop_front();
+            }
+            cout<<vec.front()<<' ';
+            visited[vec.front()]=true;
+            vec.pop_front();
+        }
+        else if (n==3&&!pq.empty()) {
+            while(visited[-pq.top().second])
+            {
+                pq.pop();
+            }
+            cout<<-pq.top().second<<' ';
+            visited[-pq.top().second]= true;
+            pq.pop();
+        }
+    }
+}
+
+
+
