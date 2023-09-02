@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+#define IO ios_base::sync_with_stdio(0),cin.tie(0),cout.tie(0) ;
+using namespace std;
+vector <pair < string , int> > ans ;
+priority_queue<int , vector<int> , greater<int> > pq ;
+string s ;
+int x ;
+int main()
+{
+    IO
+    int n ;
+    cin>>n ;
+    while(n--)
+    {
+        cin>>s ;
+        if(s[0] != 'r')
+            cin>>x ;
+        if(s[0] == 'i')
+        {
+            pq.push(x) ;
+            ans.push_back({"insert" , x}) ;
+        }
+        else if(s[0] == 'g')
+        {
+            while (!pq.empty() && pq.top() < x)
+            {
+                ans.push_back({"removeMin" , 0}) ;
+                pq.pop() ;
+            }
+            if(pq.empty() || !pq.empty() && pq.top() > x)
+            {
+                pq.push(x) ;
+                ans.push_back({"insert" , x}) ;
+            }
+            ans.push_back({"getMin" , x}) ;
+        }
+        else
+        {
+            if(pq.empty())
+            {
+                ans.push_back({"insert" , 1}) ;
+            }
+            else
+                pq.pop() ;
+            ans.push_back({"removeMin" , 0}) ;
+        }
+    }
+    cout<<ans.size()<<'\n' ;
+    for(int i=0 ; i < ans.size() ; i++)
+    {
+        if(ans[i].first[0] == 'r')
+            cout<<ans[i].first<<'\n' ;
+        else
+            cout<<ans[i].first<<' '<<ans[i].second<<'\n' ;
+    }
+
+    return 0;
+}
