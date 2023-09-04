@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+#define IO ios_base::sync_with_stdio(0),cin.tie(0),cout.tie(0) ;
+using namespace std;
+int c[3];
+int ans[1000];
+int main() {
+    IO
+    int n;
+    cin>>n;
+    int top;
+    cin>>top;
+    int r,l;
+    bool ans=0;
+    string  s;
+    for (int i = 0; i < n; ++i) {
+
+        cin>>r>>l;
+        if (r==top||r==7-top||l==top||l==7-top)
+        {
+            ans=1;
+        }
+    }
+    if (ans)
+    {
+        cout<<"NO"<<"\n";
+    }
+    else
+    {
+        cout<<"YES"<<"\n";
+    }
+    return 0;
+
+}
