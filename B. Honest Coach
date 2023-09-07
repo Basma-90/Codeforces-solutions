@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+#define IO ios_base::sync_with_stdio(0),cin.tie(0),cout.tie(0) ;
+#define ll long long
+using namespace std;
+int c[3];
+int ans[1000];
+bool comparev(pair<ll,ll>&a,pair<ll,ll>&b)
+{
+    return (b.second>a.second||(a.second==b.second&&b.first>a.first));
+}
+int arr[1009][1009];
+int bb[1009];
+int main()
+{
+    IO
+ int t;
+    cin>>t;
+
+    while(t--)
+    {
+        int siz;
+        cin>>siz;
+        int arr[siz+9];
+        for (int i = 0; i < siz; ++i) {
+            int x;
+            cin>>x;
+            arr[i]=x;
+        }
+        sort(arr,arr+siz);
+        int minx=1000009;
+        for (int i = 1; i <= siz; ++i) {
+            int res= abs(arr[i]-arr[i-1]);
+            minx= min(minx,res);
+        }
+        if (siz<2)
+        {
+            cout<<-1<<"\n";
+        }
+        else
+        {
+            cout<<minx<<"\n";
+        }
+    }
+
+}
